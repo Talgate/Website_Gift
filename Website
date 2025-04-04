@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>С Днём Рождения, Дилназ!</title>
+    <link rel="stylesheet" href="Css_code.css">
+</head>
+<body>
+    <div id="gift-banner">
+        <h2>С Днём Рождения, Дилназ! 🎉</h2>
+        <p>Ты хочешь свой подарок?</p>
+        <button id="yes-button" onclick="closeBanner()">Да</button>
+        <button id="no-button" onclick="moveNoButton()">Нет</button>
+    </div>
+    <nav>
+        <button onclick="scrollToSection('special')"><b>Почему ты особенная</b></button>
+        <button onclick="scrollToSection('gallery')"><b>Галерея</b></button>
+        <button onclick="scrollToSection('surprise')"><b>Сюрприз</b></button>
+        <button onclick="scrollToSection('music')"><b>Музыка</b></button>
+        <button onclick="scrollToSection('game')"><b>Игра</b></button>
+        <button onclick="scrollToSection('timeline')"><b>Хронология</b></button>
+        <button onclick="scrollToSection('final')"><b>Финал</b></button>
+    </nav>
+
+    <header>
+        <h1 class="fade-in">С Днём Рождения, Дилназ! <br> Сегодня твой особенный день 🥳</h1>
+    </header>
+
+    <section id="special" class="special">
+        <h2>Почему ты особенная</h2> 
+        <div class="qualities">
+            <p>❤️ Заботливая <br> всегда поддерживаешь и переживаешь за меня</p>
+            <p>😊 Весёлая <br> приносишь радость и лёгкость в общение</p>
+            <p>💬 Открытая и искренняя <br> всегда говоришь, что думаешь, и честно делишься мыслями</p>
+            <p>📷 Фотогеничная и красивая <br> потому что ты для меня особенная</p>
+            <p>👩‍🍳 Можешь готовить вкусности <br> я не мог это не отметить!</p>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <h2>Галерея воспоминаний</h2>
+        <div class="photo-grid">
+            <img src="photo_1.jpg" alt="Фото 1">
+            <img src="photo_2.jpg" alt="Фото 2">
+            <img src="photo_3.jpg" alt="Фото 3">
+            <img src="photo_4.jpg" alt="Фото 4">
+            <img src="photo_5.jpg" alt="Фото 5">
+        </div>
+    </section>
+
+    <section id="surprise" class="surprise">
+        <h2>Сюрприз</h2>
+        <button onclick="revealSurprise()">Нажми на кнопку</button>
+        <a href="https://youtu.be/GyLw-e4kil0" id="hiddenMessage" class="hidden">Послание 💌</a>
+    </section>
+
+    <section id="music" class="music">
+        <h2>Время для музыки</h2>
+        <p>Әндетемін <span id="songTitle">Мирас Жүгінісов</span></p>
+        <audio controls>
+            <source src="Мирас Жугунусов - Әндетемін.mp3" type="audio/mp3">
+        </audio>
+    </section>
+
+    <section id="game" class="game">
+        <h2>Игра</h2>
+        <p>Выбери, что я думаю о тебе:</p>
+        <button onclick="showMessage('Ты самая замечательная!')">Вариант 1</button>
+        <button onclick="showMessage('Ты делаешь мир лучше!')">Вариант 2</button>
+        <button onclick="showMessage('Ты просто супер!')">Вариант 3</button>
+        <p id="gameMessage" class="hidden"></p> 
+    </section>
+    <section id="timeline" class="timeline">
+        <h2>Хронология</h2>
+        <ul>
+            <li><b>24 ферваль</b> - Мы впервые встертились на вокзале 😆 </li>
+            <li><b>1 марта</b> - День когда ты мне написала очень долгое признание (⁠◍⁠•⁠ᴗ⁠•⁠◍⁠)❤️</li>
+            <li><b>7-8 марта</b> - наш 7 часовой разговор рекорд 😅</li>
+            <li><b>10 марта</b> - Самая душевный день с тобой в библиотеке 📚</li>
+            <li><b>19 матра</b> - Долгая и атмосферная прогулка по городу (мы сделали первую фотку 😁)</li>
+            <li><b>5 апреля</b> - Сегодня собственно твой день рождения </li>
+            <li><b>Дату выберем</b> - Вместе посмотрели сериал last of us 🤩</li>
+        </ul>
+    </section>
+
+    <section id="final" class="final">
+        <h2>Я рад, что ты есть в моей жизни ❤️</h2>
+        <img src="bear.gif" alt="Анимированное сердце (добавь гифку)" style="width:200px;height:200px;">
+    </section>
+
+    <script>
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function revealSurprise() {
+            document.getElementById('hiddenMessage').style.display = 'block';
+        }
+
+        function showMessage(message) {
+            document.getElementById('gameMessage').textContent = message;
+            document.getElementById('gameMessage').style.display = 'block';
+        }
+
+        function closeBanner() {
+            document.getElementById('gift-banner').style.display = 'none';
+        }
+
+        function moveNoButton() {
+            const button = document.getElementById('no-button');
+            const maxX = window.innerWidth - button.clientWidth;
+            const maxY = window.innerHeight - button.clientHeight;
+            const newX = Math.random() * maxX;
+            const newY = Math.random() * maxY;
+            button.style.left = newX + 'px';
+            button.style.top = newY + 'px';
+        }
+    </script>
+</body>
+</html>
